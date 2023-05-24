@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="'layout/LayoutPadrao'"
+	xmlns:brewer="http://estoque.faetec.rj.gov.br">
+	
+<head>
+	<title>Pesquisa de Congregações</title>
+</head>
+
+<body>
+<section layout:fragment="conteudo">
+	<div class="page-header">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-10">
+					<h1>Pesquisa de Congregações</h1>
+				</div>
+				
+				<div class="col-sm-2">
+					<div class="aw-page-header-controls">
+						<a class="btn  btn-default" th:href="@{/congregacoes/novo}">
+							<i class="glyphicon  glyphicon-plus-sign"></i> <span class="hidden-xs  hidden-sm">Nova Congregação</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container-fluid">
+		<form method="GET" th:object="${congregacaoFilter}">
+			<div class="row">
+				<div class="form-group  col-sm-6">
+					<label class="control-label" for="endereco">Endereco</label>
+					<input type="text" class="form-control" id="endereco" autofocus="autofocus" th:field="*{endereco}"/>
+				</div>
+				
+				<div class="form-group  col-sm-6" >
+					<label class="control-label" for="numero">Numero</label>
+					<input type="text" class="form-control" id="numero" th:field="*{numero}"/>
+				</div>
+				
+				<div class="form-group  col-sm-6" >
+					<label class="control-label" for="bairro">Bairro</label>
+					<input type="text" class="form-control" id="bairro" th:field="*{cidade}"/>
+				</div>
+				
+				<div class="form-group  col-sm-6" >
+					<label class="control-label" for="cidade">Cidade</label>
+					<input type="text" class="form-control" id="cidade" th:field="*{cidade}"/>
+				</div>
+				
+				<div class="form-group  col-sm-6" >
+					<label class="control-label" for="uf">Uf</label>
+					<input type="text" class="form-control" id="uf" th:field="*{uf}"/>
+				</div>
+				
+				<div class="form-group  col-sm-6" >
+					<label class="control-label" for="cep">Cep</label>
+					<input type="text" class="form-control" id="cep" th:field="*{cep}"/>
+				</div>
+				
+			</div>
+			
+			
+			<button type="submit" class="btn  btn-primary">Pesquisar</button>
+		</form>
+		
+		<div class="table-responsive  bw-tabela-simples">
+			<table class="table  table-hover">
+				<thead>
+					<tr>
+					    <!-- 
+						<th class="table-congregacoes-col-foto"></th>
+						-->
+						<th class="table-congregacoes-col-endereco">Endereco</th>
+						<th class="table-congregacoes-col-numero">Numero</th>
+						<th class="table-congregacoes-col-bairro">Bairro</th>
+						<th class="table-congregacoes-col-cidade">Cidade</th>
+						<th class="table-congregacoes-col-uf">UF</th>
+						<th class="table-congregacoes-col-cep">Cep</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr th:each="congregacao : ${congregacoes}">
+					    <!-- 
+						<td class="text-center">
+							<img th:src="@{/fotos/temp/{foto}(foto=${congregacao.foto})}" class="img-responsive"/>
+						</td>
+						-->
+						<td class="text-left" th:text="${congregacao.endereco}">Rua Joaquim de Oliveira Machado</td>
+						<td class="text-center">
+							<a class="btn  btn-link  btn-xs" title="Editar"> 
+								<i class="glyphicon glyphicon-pencil"></i>
+							</a>
+							<a class="btn  btn-link  btn-xs" title="Excluir">
+								<i class="glyphicon glyphicon-remove"></i>
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</section>
+</body>
+</html>
