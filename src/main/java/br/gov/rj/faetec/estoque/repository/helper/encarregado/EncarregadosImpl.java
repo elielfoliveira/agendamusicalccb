@@ -27,20 +27,18 @@ public class EncarregadosImpl implements EncarregadosQueries {
 		Criteria criteria = manager.unwrap(Session.class).createCriteria(Encarregado.class);
 		
 		if (filtro != null) {
-			
+						
 			if (!StringUtils.isEmpty(filtro.getNome())) {
 				criteria.add(Restrictions.ilike("nome", filtro.getNome(), MatchMode.ANYWHERE));
 			}
 
-			if (filtro != null) {
-				if (!StringUtils.isEmpty(filtro.getTelefone())) {
-					criteria.add(Restrictions.eq("telefone", filtro.getTelefone()));
-				}
-				
-			if (filtro != null) {
-				if (!StringUtils.isEmpty(filtro.getStatus())) {
-						criteria.add(Restrictions.eq("status", filtro.getStatus()));
-				}
+			if (!StringUtils.isEmpty(filtro.getTelefone())) {
+				criteria.add(Restrictions.eq("telefone", filtro.getTelefone()));
+			}
+			
+			if (!StringUtils.isEmpty(filtro.getStatus())) {
+				criteria.add(Restrictions.eq("status", filtro.getStatus()));
+			}
 		}
 		
 		return criteria.list();

@@ -6,7 +6,7 @@
 	xmlns:brewer="http://estoque.faetec.rj.gov.br">
 	
 <head>
-	<title>Pesquisa de Encarregados Locais</title>
+	<title>Pesquisa de Encarregados Regionais</title>
 </head>
 
 <body>
@@ -15,13 +15,13 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-10">
-					<h1>Pesquisa de encarregados locais</h1>
+					<h1>Pesquisa de encarregados regionais</h1>
 				</div>
 				
 				<div class="col-sm-2">
 					<div class="aw-page-header-controls">
-						<a class="btn  btn-default" th:href="@{/encarregados/novo}">
-							<i class="glyphicon  glyphicon-plus-sign"></i> <span class="hidden-xs  hidden-sm">Novo encarregado</span>
+						<a class="btn  btn-default" th:href="@{/regionais/novo}">
+							<i class="glyphicon  glyphicon-plus-sign"></i> <span class="hidden-xs  hidden-sm">Novo encarregado regional</span>
 						</a>
 					</div>
 				</div>
@@ -30,7 +30,7 @@
 	</div>
 	
 	<div class="container-fluid">
-		<form method="GET" th:object="${encarregadoFilter}">
+		<form method="GET" th:object="${regionalFilter}">
 			<div class="row">
 				<div class="form-group  col-sm-8">
 					<label class="control-label" for="nome">Nome</label>
@@ -58,24 +58,24 @@
 				<thead>
 					<tr>
 					    <!-- 
-						<th class="table-encarregados-col-foto"></th>
+						<th class="table-regionais-col-foto"></th>
 						-->
-						<th class="table-encarregados-col-nome">Nome</th>
-						<th class="table-encarregados-col-telefone">Telefone</th>
-						<th class="table-encarregados-col-status">Status</th>
+						<th class="table-regionais-col-nome">Nome</th>
+						<th class="table-regionais-col-telefone">Telefone</th>
+						<th class="table-regionais-col-status">Status</th>
 					</tr>
 				</thead>
 				
 				<tbody>
-					<tr th:each="encarregado : ${encarregado}">
+					<tr th:each="regional : ${regional}">
 					    <!-- 
 						<td class="text-center">
-							<img th:src="@{/fotos/temp/{foto}(foto=${encarregado.foto})}" class="img-responsive"/>
+							<img th:src="@{/fotos/temp/{foto}(foto=${regional.foto})}" class="img-responsive"/>
 						</td>
 						-->
-						<td class="text-left" th:text="${encarregado.nome}">Mauro da Silva</td>
-						<td class="text-left" th:text="${encarregado.telefone}">55(24)988169361</td>
-						<td class="text-left" th:text="${encarregado.status}">ativo</td>
+						<td class="text-left" th:text="${regional.nome}">Mauro da Silva</td>
+						<td class="text-left" th:text="${regional.telefone}">55(24)988169361</td>
+						<td class="text-left" th:text="${regional.status}">ativo</td>
 						<td class="text-center">
 							<a class="btn  btn-link  btn-xs" title="Editar"> 
 								<i class="glyphicon glyphicon-pencil"></i>

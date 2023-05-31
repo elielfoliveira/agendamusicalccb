@@ -6,7 +6,7 @@
 	xmlns:brewer="http://estoque.faetec.rj.gov.br">
 	
 <head>
-	<title>Cadastro de Encarregado Local</title>
+	<title>Cadastro de Encarregado Regional</title>
 </head>
 
 <body>
@@ -16,12 +16,12 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-10">
-					<h1>Cadastro de encarregado local</h1>
+					<h1>Cadastro de encarregado regional</h1>
 				</div>
 			
 				<div class="col-sm-2">
 					<div class="aw-page-header-controls">
-						<a class="btn  btn-default" th:href="@{/encarregados}">
+						<a class="btn  btn-default" th:href="@{/regionais}">
 							<i class="glyphicon  glyphicon-plus-sign"></i> <span class="hidden-xs  hidden-sm">Pesquisa</span>
 						</a>
 					</div>
@@ -34,7 +34,7 @@
 
 		<th:block th:include="fragments/MensagemSucesso"></th:block>
 
-		<form method="POST" th:object="${encarregado}" class="form-vertical  js-form-loading">
+		<form method="POST" th:object="${regional}" class="form-vertical  js-form-loading">
 			<th:block th:include="fragments/MensagensErroValidacao"></th:block>
 	
 			<div class="row">

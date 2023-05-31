@@ -16,7 +16,6 @@ import br.gov.rj.faetec.estoque.model.Regional;
 import br.gov.rj.faetec.estoque.repository.Regionais;
 import br.gov.rj.faetec.estoque.repository.filter.RegionalFilter;
 import br.gov.rj.faetec.estoque.service.CadastroRegionalService;
-
 @Controller
 @RequestMapping("/regionais")
 public class RegionaisController {
@@ -25,7 +24,7 @@ public class RegionaisController {
 	private CadastroRegionalService cadastroRegionalService;
 	
 	@Autowired
-	private Regional regionais;
+	private Regionais regionais;
 	
 	@RequestMapping("/novo")
 	public ModelAndView novo(Regional regional) {
@@ -45,9 +44,9 @@ public class RegionaisController {
 	}
 	
 	@GetMapping
-	public ModelAndView pesquisar(Filter regionalFilter, BindingResult result) {
+	public ModelAndView pesquisar(RegionalFilter regionalFilter, BindingResult result) {
 		ModelAndView mv = new ModelAndView("regional/PesquisaRegionais");
-		mv.addObject("regionails", regionais.filtrar(regionalFilter));
+		mv.addObject("regionais", regionais.filtrar(regionalFilter));
 		return mv;
 	}
 	

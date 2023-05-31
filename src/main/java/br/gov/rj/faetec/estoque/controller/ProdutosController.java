@@ -19,7 +19,6 @@ import br.gov.rj.faetec.estoque.repository.Produtos;
 import br.gov.rj.faetec.estoque.repository.Estilos;
 import br.gov.rj.faetec.estoque.repository.filter.ProdutoFilter;
 import br.gov.rj.faetec.estoque.service.CadastroProdutoService;
-
 @Controller
 @RequestMapping("/produtos")
 public class ProdutosController {

@@ -39,8 +39,9 @@ public class CongregacoesImpl implements CongregacoesQueries {
 				}
 
 			if (!StringUtils.isEmpty(filtro.getCidade())) {
-				criteria.add(Restrictions.eq("cidade", filtro.getCidade()));
+				criteria.add(Restrictions.ilike("cidade", filtro.getCidade(), MatchMode.ANYWHERE));
 				}
+
 
 			if (!StringUtils.isEmpty(filtro.getUf())) {
 				criteria.add(Restrictions.eq("uf", filtro.getUf()));

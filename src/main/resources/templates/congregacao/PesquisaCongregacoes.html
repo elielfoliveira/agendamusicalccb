@@ -15,13 +15,13 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-10">
-					<h1>Pesquisa de Congregações</h1>
+					<h1>Pesquisa de encarregados locais</h1>
 				</div>
 				
 				<div class="col-sm-2">
 					<div class="aw-page-header-controls">
 						<a class="btn  btn-default" th:href="@{/congregacoes/novo}">
-							<i class="glyphicon  glyphicon-plus-sign"></i> <span class="hidden-xs  hidden-sm">Nova Congregação</span>
+							<i class="glyphicon  glyphicon-plus-sign"></i> <span class="hidden-xs  hidden-sm">Nova congregação</span>
 						</a>
 					</div>
 				</div>
@@ -32,34 +32,29 @@
 	<div class="container-fluid">
 		<form method="GET" th:object="${congregacaoFilter}">
 			<div class="row">
-				<div class="form-group  col-sm-6">
+				<div class="form-group  col-sm-8">
 					<label class="control-label" for="endereco">Endereco</label>
 					<input type="text" class="form-control" id="endereco" autofocus="autofocus" th:field="*{endereco}"/>
 				</div>
 				
-				<div class="form-group  col-sm-6" >
+				<div class="form-group  col-sm-2">
 					<label class="control-label" for="numero">Numero</label>
-					<input type="text" class="form-control" id="numero" th:field="*{numero}"/>
+					<input type="text" class="form-control" id="numero" autofocus="autofocus" th:field="*{numero}"/>
 				</div>
 				
-				<div class="form-group  col-sm-6" >
+				<div class="form-group  col-sm-8">
 					<label class="control-label" for="bairro">Bairro</label>
-					<input type="text" class="form-control" id="bairro" th:field="*{cidade}"/>
+					<input type="text" class="form-control" id="bairro" autofocus="autofocus" th:field="*{bairro}"/>
 				</div>
 				
-				<div class="form-group  col-sm-6" >
-					<label class="control-label" for="cidade">Cidade</label>
-					<input type="text" class="form-control" id="cidade" th:field="*{cidade}"/>
+				<div class="form-group  col-sm-2">
+					<label class="control-label" for="uf">UF</label>
+					<input type="text" class="form-control" id="uf" autofocus="autofocus" th:field="*{uf}"/>
 				</div>
 				
-				<div class="form-group  col-sm-6" >
-					<label class="control-label" for="uf">Uf</label>
-					<input type="text" class="form-control" id="uf" th:field="*{uf}"/>
-				</div>
-				
-				<div class="form-group  col-sm-6" >
+				<div class="form-group  col-sm-2">
 					<label class="control-label" for="cep">Cep</label>
-					<input type="text" class="form-control" id="cep" th:field="*{cep}"/>
+					<input type="text" class="form-control" id="cep" autofocus="autofocus" th:field="*{cep}"/>
 				</div>
 				
 			</div>
@@ -76,7 +71,6 @@
 						<th class="table-congregacoes-col-foto"></th>
 						-->
 						<th class="table-congregacoes-col-endereco">Endereco</th>
-						<th class="table-congregacoes-col-numero">Numero</th>
 						<th class="table-congregacoes-col-bairro">Bairro</th>
 						<th class="table-congregacoes-col-cidade">Cidade</th>
 						<th class="table-congregacoes-col-uf">UF</th>
@@ -85,13 +79,17 @@
 				</thead>
 				
 				<tbody>
-					<tr th:each="congregacao : ${congregacoes}">
+					<tr th:each="congregacao: ${congregacao}">
 					    <!-- 
 						<td class="text-center">
 							<img th:src="@{/fotos/temp/{foto}(foto=${congregacao.foto})}" class="img-responsive"/>
 						</td>
 						-->
-						<td class="text-left" th:text="${congregacao.endereco}">Rua Joaquim de Oliveira Machado</td>
+						<td class="text-left" th:text="${congregacao.endereco}">Mauro da Silva</td>
+						<td class="text-left" th:text="${congregacao.bairro}">55(24)988169361</td>
+						<td class="text-left" th:text="${congregacao.cidade}">ativo</td>
+						<td class="text-left" th:text="${congregacao.uf}">ativo</td>
+						<td class="text-left" th:text="${congregacao.cep}">ativo</td>
 						<td class="text-center">
 							<a class="btn  btn-link  btn-xs" title="Editar"> 
 								<i class="glyphicon glyphicon-pencil"></i>
@@ -108,4 +106,4 @@
 
 </section>
 </body>
-</html>
+</html>			

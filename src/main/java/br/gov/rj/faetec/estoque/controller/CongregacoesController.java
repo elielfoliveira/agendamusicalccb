@@ -46,8 +46,7 @@ public class CongregacoesController {
 	
 	@GetMapping
 	public ModelAndView pesquisar(CongregacaoFilter congregacaoFilter, BindingResult result) {
-		ModelAndView mv = new ModelAndView("congregacao/PesquisaCongregacoes");
-		
+		ModelAndView mv = new ModelAndView("congregacao/PesquisaCongregacoes");	
 		mv.addObject("congregacoes", congregacoes.filtrar(congregacaoFilter));
 		return mv;
 	}
