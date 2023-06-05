@@ -31,7 +31,7 @@ public class Setor {
 	private Long id;
 	
 	@NotBlank(message = "Setor é obrigatorio")
-	@Size(max = 50, message = "O tamanho do setor deve estar entre 1 e 80")
+	@Size(max = 50, message = "O tamanho do setor deve estar entre 1 e 50")
 	private String local;
 
 	public String getLocal() {

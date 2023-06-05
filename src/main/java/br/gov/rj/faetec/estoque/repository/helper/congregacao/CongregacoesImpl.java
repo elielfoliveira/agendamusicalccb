@@ -32,28 +32,26 @@ public class CongregacoesImpl implements CongregacoesQueries {
 			}
 			
 			if (!StringUtils.isEmpty(filtro.getNumero())) {
-				criteria.add(Restrictions.eq("numero", filtro.getNumero()));
+				criteria.add(Restrictions.like("numero", filtro.getNumero(), MatchMode.ANYWHERE));
+			}
 
 			if (!StringUtils.isEmpty(filtro.getBairro())) {
 				criteria.add(Restrictions.ilike("bairro", filtro.getBairro(), MatchMode.ANYWHERE));
-				}
+			}
 
 			if (!StringUtils.isEmpty(filtro.getCidade())) {
 				criteria.add(Restrictions.ilike("cidade", filtro.getCidade(), MatchMode.ANYWHERE));
-				}
-
+			}
 
 			if (!StringUtils.isEmpty(filtro.getUf())) {
-				criteria.add(Restrictions.eq("uf", filtro.getUf()));
-				}
+				criteria.add(Restrictions.ilike("uf", filtro.getUf(), MatchMode.ANYWHERE));
+			}
 
 			if (!StringUtils.isEmpty(filtro.getCep())) {
-				criteria.add(Restrictions.eq("cep", filtro.getCep()));
-				}
+				criteria.add(Restrictions.ilike("cep", filtro.getCep(), MatchMode.ANYWHERE));
 			}
-			
-			return criteria.list();
 		}
-		return null;
+			
+		return criteria.list();
 	}
-	}
+}

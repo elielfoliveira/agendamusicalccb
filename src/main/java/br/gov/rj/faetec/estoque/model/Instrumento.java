@@ -1,5 +1,3 @@
-// Autor: Eliel
-// Data: 24/05/2023
 package br.gov.rj.faetec.estoque.model;
 
 import java.math.BigDecimal;
@@ -25,49 +23,24 @@ import org.hibernate.validator.constraints.NotBlank;
 import br.gov.rj.faetec.estoque.validation.SKU;
 
 @Entity
-@Table(name = "regional")
-public class Regional {
+@Table(name = "instrumento")
+public class Instrumento {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank(message = "Nome do encarregado regional é obrigatorio")
-	@Size(max = 80, message = "O tamanho da descrição deve estar entre 1 e 80")
-	private String nome;
+	@NotBlank(message = "A descrição do seu instrumento é obrigatorio")
+	@Size(max = 50, message = "O tamanho do setor deve estar entre 1 e 50")
+	private String descricao;
 
-	@NotBlank(message = "O telefone é obrigatório")
-	@Size(max = 20, message = "O tamanho do telefone deve estar entre 1 e 20")
-	private String telefone;
-
-	@NotBlank(message = "O status é obrigatório")
-	@Size(max = 20, message = "O tamanho do status deve estar entre 1 e 20")
-	private String status;
-	
-	public String getNome() {
-		return nome;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
-
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
 	
 	@Override
 	public int hashCode() {
@@ -85,15 +58,13 @@ public class Regional {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Regional other = (Regional) obj;
+		Instrumento other = (Instrumento) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-		
 	}
 
-	
 }

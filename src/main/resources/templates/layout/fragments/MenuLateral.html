@@ -1,50 +1,77 @@
 <!DOCTYPE html>
-<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
-	xmlns:th="http://www.thymeleaf.org">
-	
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <body>
-<aside class="aw-layout-sidebar  js-sidebar" th:fragment="layout-sidebar">
-	<div class="aw-layout-sidebar__content">
+    <aside class="aw-layout-sidebar js-sidebar" th:fragment="layout-sidebar">
+        <div class="aw-layout-sidebar__content">
 
-    	<nav class="aw-menu  js-menu">
-      		<ul class="aw-menu__list">
+            <nav class="aw-menu js-menu">
+                <ul class="aw-menu__list">
 
-        		<li class="aw-menu__item">
-          			<a href="dashboard.html"><i class="fa  fa-fw  fa-home"></i><span>Dashboard</span></a>
-        		</li>
+                    <li class="aw-menu__item">
+                        <a href="dashboard.html"><i class="fa fa-fw fa-home"></i><span>Dashboard</span></a>
+                    </li>
 
-        		<li class="aw-menu__item  is-active">
-          			<a href="#">
-            			<i class="fa  fa-fw  fa-file-text"></i><span>Cadastros</span>
-            			<i class="aw-menu__navigation-icon  fa"></i>
-          			</a>
-      
-          			<ul class="aw-menu__list  aw-menu__list--sublist">
-			            <li class="aw-menu__item  aw-menu__item--link"><a href="produtos/novo">Cadastro de produto</a></li>
-			            <li class="aw-menu__item  aw-menu__item--link  is-active"><a href="">Pesquisa de produtos</a></li>
-			            <li class="aw-menu__item  aw-menu__item--link"><a href="tabela-sem-dados.html">Tabela sem dados</a></li>
-          			</ul>
-        		</li>
+                    <li class="aw-menu__item">
+                        <a href="#" class="aw-menu__toggle" onclick="toggleSubMenu(event)">
+                            <i class="fa fa-fw fa-file-text"></i><span>Cadastros</span>
+                            <i class="aw-menu__navigation-icon fa"></i>
+                        </a>
+                        <ul class="aw-menu__list aw-menu__list--sublist">
+                            <li class="aw-menu__item aw-menu__item--link"><a href="produtos/novo">Produto</a></li>
+                            <li class="aw-menu__item aw-menu__item--link"><a href="congregacoes/novo">Congregação</a></li>
+                            <li class="aw-menu__item aw-menu__item--link"><a href="setores/novo">Setor</a></li>
+                            <li class="aw-menu__item aw-menu__item--link"><a href="instrumentos/novo">Instrumento</a></li>
+                            <li class="aw-menu__item aw-menu__item--link"><a href="encarregados/novo">Encarregado Local</a></li>
+                            <li class="aw-menu__item aw-menu__item--link"><a href="regionais/novo">Encarregado Regional</a></li>
+                        </ul>
+                    </li>
 
-        		<li class="aw-menu__item  is-expanded">
-          			<a href="#">
-            			<i class="fa  fa-fw  fa-file-text"></i><span>Páginas comuns</span>
-            			<i class="aw-menu__navigation-icon  fa"></i>
-          			</a>
+                    <li class="aw-menu__item">
+                        <a href="#" class="aw-menu__toggle" onclick="toggleSubMenu(event)">
+                            <i class="fa fa-fw fa-file-text"></i><span>Pesquisa</span>
+                            <i class="aw-menu__navigation-icon fa"></i>
+                        </a>
+                        <ul class="aw-menu__list aw-menu__list--sublist">
+                            <li class="aw-menu__item aw-menu__item--link"><a href="produtos.html">Produtos</a></li>
+                            <li class="aw-menu__item aw-menu__item--link"><a href="congregacoes.html">Congregação</a></li>
+                            <li class="aw-menu__item aw-menu__item--link"><a href="setores.html">Setor</a></li>
+                            <li class="aw-menu__item aw-menu__item--link"><a href="instrumentos.html">Instrumento</a></li>
+                            <li class="aw-menu__item aw-menu__item--link"><a href="encarregados.html">Encarregado Local</a></li>
+                            <li class="aw-menu__item aw-menu__item--link"><a href="regionais.html">Encarregado Regional</a></li>
+                        </ul>
+                    </li>
 
-          			<ul class="aw-menu__list  aw-menu__list--sublist">
-			            <li class="aw-menu__item  aw-menu__item--link"><a href="pagina-vazia.html">Página vazia</a></li>
-			            <li class="aw-menu__item  aw-menu__item--link"><a href="login.html">Login</a></li>
-			            <li class="aw-menu__item  aw-menu__item--link"><a href="esqueceu-a-senha.html">Esqueceu a senha</a></li>
-			            <li class="aw-menu__item  aw-menu__item--link"><a href="403.html">403</a></li>
-			            <li class="aw-menu__item  aw-menu__item--link"><a href="404.html">404</a></li>
-			            <li class="aw-menu__item  aw-menu__item--link"><a href="500.html">500</a></li>
-          			</ul>
-        		</li>
+                    <li class="aw-menu__item">
+                        <a href="#" class="aw-menu__toggle" onclick="toggleSubMenu(event)">
+                            <i class="fa fa-fw fa-file-text"></i><span>Páginas comuns</span>
+                            <i class="aw-menu__navigation-icon fa"></i>
+                        </a>
+                        <ul class="aw-menu__list aw-menu__list--sublist">
+                            <li class="aw-menu__item aw-menu__item--link"><a href="pagina-vazia.html">Página vazia</a></li>
+                            <li class="aw-menu__item aw-menu__item--link"><a href="login.html">Login</a></li>
+                            <li class="aw-menu__item aw-menu__item--link"><a href="esqueceu-a-senha.html">Esqueceu a senha</a></li>
+                        </ul>
+                    </li>
 
-      		</ul>
-    	</nav>
-	</div>
-</aside>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+    <script>
+        function toggleSubMenu(event) {
+            event.preventDefault();
+            const menuItem = event.currentTarget.parentElement;
+            menuItem.classList.toggle('is-expanded');
+        }
+
+        // Recolher todos os submenus inicialmente
+        const subMenus = document.querySelectorAll('.aw-menu__item');
+        subMenus.forEach(subMenu => {
+            subMenu.classList.remove('is-expanded');
+        });
+    </script>
 </body>
+
 </html>
+

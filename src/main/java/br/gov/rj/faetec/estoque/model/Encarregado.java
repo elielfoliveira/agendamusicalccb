@@ -44,7 +44,7 @@ public class Encarregado {
 	@Size(max = 20, message = "O tamanho do status deve estar entre 1 e 20")
 	private String status;
 	
-	public String getnome() {
+	public String getNome() {
 		return nome;
 	}
 

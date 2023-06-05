@@ -33,11 +33,11 @@ public class EncarregadosImpl implements EncarregadosQueries {
 			}
 
 			if (!StringUtils.isEmpty(filtro.getTelefone())) {
-				criteria.add(Restrictions.eq("telefone", filtro.getTelefone()));
+				criteria.add(Restrictions.ilike("telefone", filtro.getTelefone(), MatchMode.ANYWHERE));
 			}
 			
 			if (!StringUtils.isEmpty(filtro.getStatus())) {
-				criteria.add(Restrictions.eq("status", filtro.getStatus()));
+				criteria.add(Restrictions.ilike("status", filtro.getStatus(), MatchMode.ANYWHERE));
 			}
 		}
 		

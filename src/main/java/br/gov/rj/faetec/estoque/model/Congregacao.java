@@ -81,7 +81,7 @@ public class Congregacao {
 		this.bairro = bairro;
 	}
 	
-	public String getCidadeo() {
+	public String getCidade() {
 		return cidade;
 	}
 	public void setCidade(String cidade) {

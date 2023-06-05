@@ -12,11 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.gov.rj.faetec.estoque.model.Origem;
-import br.gov.rj.faetec.estoque.model.Sabor;
 import br.gov.rj.faetec.estoque.model.Setor;
 import br.gov.rj.faetec.estoque.repository.Setores;
-import br.gov.rj.faetec.estoque.repository.filter.ProdutoFilter;
 import br.gov.rj.faetec.estoque.repository.filter.SetorFilter;
 import br.gov.rj.faetec.estoque.service.CadastroSetorService;
 
