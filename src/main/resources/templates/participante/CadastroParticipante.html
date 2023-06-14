@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"	
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="'layout/LayoutPadrao'"
+	xmlns:brewer="http://estoque.faetec.rj.gov.br">
+	
+<head>
+	<title>Cadastro de Participante</title>
+</head>
+
+<body>
+<section layout:fragment="conteudo">
+
+	<div class="page-header">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-10">
+					<h1>Cadastro de participante</h1>
+				</div>
+			
+				<div class="col-sm-2">
+					<div class="aw-page-header-controls">
+						<a class="btn  btn-default" th:href="@{/participantes}">
+							<i class="glyphicon  glyphicon-plus-sign"></i> <span class="hidden-xs  hidden-sm">Pesquisa</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+
+		<th:block th:include="fragments/MensagemSucesso"></th:block>
+
+		<form method="POST" th:object="${participante}" class="form-vertical  js-form-loading">
+			<th:block th:include="fragments/MensagensErroValidacao"></th:block>
+	
+			<div class="row">
+				<div class="col-sm-6  form-group" th:classappend="${#fields.hasErrors('nome')} ? has-error">
+					<label for="nome" class="control-label">Nome</label>
+					<input id="nome" type="text" class="form-control" th:field="*{nome}"/>
+				</div>
+			
+				<div class="col-sm-3  form-group" th:classappend="${#fields.hasErrors('dtnascimento')} ? has-error">
+					<label for="dtnascimento" class="control-label">Data de Nascimento</label>
+					<input id="dtnascimento" type="text" class="form-control" th:field="*{dtnascimento}"/>
+				</div>
+				
+				<div class="col-sm-3  form-group" th:classappend="${#fields.hasErrors('dtcadastro')} ? has-error">
+					<label for="dtcadastro" class="control-label">Data de Cadastro</label>
+					<input id="dtcadastro" type="text" class="form-control" th:field="*{dtcadastro}"/>
+				</div>
+			</div>
+			
+            <div class="row">
+				<div class="col-sm-6  form-group" th:classappend="${#fields.hasErrors('email')} ? has-error">
+					<label for="email" class="control-label">Email</label>
+					<input id="email" type="text" class="form-control" th:field="*{email}"/>
+				</div>
+				
+				<div class="col-sm-2  form-group" th:classappend="${#fields.hasErrors('celular')} ? has-error">
+					<label for="celular" class="control-label">Nº Celular</label>
+					<input id="celular" type="text" class="form-control" th:field="*{celular}"/>
+				</div>
+				
+				<div class="col-sm-4  form-group" th:classappend="${#fields.hasErrors('tipo')} ? has-error">
+					<label for="tipo" class="control-label">Tipo de participante</label>
+					<div class="bw-field-action">
+						<div class="col-sm-10" style="padding-left: 0;">
+							<select id="tipo" class="form-control" th:field="*{tipo}">
+								<option value="">Selecione o tipo de participante</option>
+								<option th:each="tipo : ${tipos}" th:value="${tipo.id}" th:text="${tipo.descricao}">Musico</option>
+							</select>
+						</div>
+						
+						<div class="col-sm-1" style="padding-top: 6px;">
+							<a href="#" data-toggle="modal" data-target="#modalCadastroRapidoTipo">
+								<i class="glyphicon  glyphicon-plus-sign  bw-glyphicon-large"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+
+						
+			<div class="form-group">
+				<button class="btn  btn-primary" type="submit">Salvar</button>
+			</div>
+	
+		</form>
+	</div>
+	
+	<div th:replace="tipo/CadastroRapidoTipo :: modal"></div>	
+</section>
+
+<th:block layout:fragment="javascript-extra">
+	<script th:src="@{/javascripts/tipo.cadastro-rapido.js}"></script>
+</th:block>
+		
+</body>
+</html>

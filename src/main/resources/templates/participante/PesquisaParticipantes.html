@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="'layout/LayoutPadrao'"
+	xmlns:brewer="http://estoque.faetec.rj.gov.br">
+	
+<head>
+	<title>Pesquisa de participante</title>
+</head>
+
+<body>
+<section layout:fragment="conteudo">
+	<div class="page-header">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-10">
+					<h1>Pesquisa de participantes</h1>
+				</div>
+				
+				<div class="col-sm-2">
+					<div class="aw-page-header-controls">
+						<a class="btn  btn-default" th:href="@{/participantes/novo}">
+							<i class="glyphicon  glyphicon-plus-sign"></i> <span class="hidden-xs  hidden-sm">Novo participante</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container-fluid">
+		<form method="GET" th:object="${participanteFilter}">
+			<div class="row">
+				<div class="form-group  col-sm-6">
+					<label class="control-label" for="sku">Nome</label>
+					<input type="text" class="form-control" id="nome" autofocus="autofocus" th:field="*{nome}"/>
+				</div>
+			
+				<div class="form-group  col-sm-3" >
+					<label class="control-label" for="dtnascimento">Data de Nascimento</label>
+					<input type="text" class="form-control" id="dtnascimento" th:field="*{dtnascimento}"/>
+				</div>
+				
+				<div class="form-group  col-sm-3" >
+					<label class="control-label" for="dtcadastro">Data de Cadastro</label>
+					<input type="text" class="form-control" id="dtcadastro" th:field="*{dtcadastro}"/>
+				</div>
+			</div>
+						
+			<div class="row">
+				<div class="form-group  col-sm-6" >
+					<label class="control-label" for="email">Email</label>
+					<input type="text" class="form-control" id="email" th:field="*{email}"/>
+				</div>
+				
+				<div class="form-group  col-sm-2" >
+					<label class="control-label" for="celular">Nº Celular</label>
+					<input type="text" class="form-control" id="celular" th:field="*{celular}"/>
+				</div>
+				
+				<div class="form-group  col-sm-4">
+					<label class="control-label" for="tipo">Tipo de participante</label>
+					<select id="tipo" class="form-control" th:field="*{tipo}">
+	                    <option value="">Todos os participantes</option>
+	                    <option th:each="tipo : ${tipos}" th:text="${tipo.nome}" th:value="${tipo.id}"></option>
+	                </select>
+				</div>
+				
+			</div>
+			
+			
+			
+			<button type="submit" class="btn  btn-primary">Pesquisar</button>
+		</form>
+		
+		<div class="table-responsive  bw-tabela-simples">
+			<table class="table  table-hover">
+				<thead>
+					<tr>
+						<th class="table-participantes-col-nome">Nome</th>
+						<th class="table-participantes-col-dtnascimento">Data de Nascimento</th>
+						<th class="table-participantes-col-dtcadastro">Data de Cadastro</th>
+						<th class="table-participantes-col-email">Email</th>
+						<th class="table-participantes-col-tipo">Tipo de Participante</th>
+						<th class="table-participantes-col-celular">Nº Celular</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr th:each="participante : ${participantes}">
+						<td class="text-left" th:text="${participante.nome}">Paulo</td>
+						<td th:text="${#dates.format(participante.dtnascimento, 'dd/MM/yyyy')}">05/05/2005</td>
+						<td th:text="${#dates.format(participante.dtcadastro, 'dd/MM/yyyy')}">05/05/2006</td>
+						<td th:text="${participante.email}">elielferreira@gmail.com</td>
+						<td th:text="${participante.tipo.descricao}">Musico</td>
+						<td th:text="${participante.celular}">(55)24-98801-0101</td>
+						<td class="text-center">
+							<a class="btn  btn-link  btn-xs" title="Editar"> 
+								<i class="glyphicon glyphicon-pencil"></i>
+							</a>
+							<a class="btn  btn-link  btn-xs" title="Excluir">
+								<i class="glyphicon glyphicon-remove"></i>
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</section>
+</body>
+</html>
